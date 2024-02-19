@@ -33,16 +33,16 @@ export default function NavMenu() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
 
-          <Link href="#" className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href='/home' className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
             Home
           </Link>
-          <Link href="#" className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href="/news" className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
             News
           </Link>
-          <Link href="#" className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href="/blog" className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
             Blog
           </Link>
-          <Link href="#" className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href="/video" className="text-sm leading-6 text-gray-900 hover:text-primary-hover">
             Video
           </Link>
         </div>

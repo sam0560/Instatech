@@ -1,10 +1,8 @@
-import NavMenu from "@/app/component/NavMenu";
-import LandingPage from "@/app/views/LandingPage";
+import LandingPage from "@/app/home/page";
 
 export default function Home() {
   return (
     <main>
-        <NavMenu/>
         <LandingPage/>
     </main>
   );
