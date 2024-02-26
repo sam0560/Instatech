@@ -1,10 +1,8 @@
 'use client'
 
+import React, { useRef as UseRef, useState as UseState } from 'react'
 import { Box } from '@chakra-ui/react';
-import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
-import React, { useRef, useState } from 'react'
 import War from "../../../public/testImage/ukrainewar.webp";
 
 export default function page() {
@@ -12,8 +10,8 @@ export default function page() {
   
   
   // Set hover play video
-  const [isPlaying, setIsPlaying] = useState<{[key: number]:boolean}>({});
-  const videoRef = useRef<{[key: number]: HTMLVideoElement | null}>({})
+  const [isPlaying, setIsPlaying] = UseState<{[key: number]:boolean}>({});
+  const videoRef = UseRef<{[key: number]: HTMLVideoElement | null}>({})
 
   const handleMouseEnter = (id:number) => {
     setIsPlaying((prevState)=> ({
@@ -73,7 +71,7 @@ export default function page() {
                     height={16}
                     className="bg-cover bg-center rounded-full w-8 h-8"
                   />
-                  <h6 className="text-justify">
+                  <h6>
                     {i.title}
                   </h6>
                 </Box>
