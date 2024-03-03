@@ -1,5 +1,3 @@
-"use client"
-
 // import components
 import TechVideos from "../video/page";
 import FetchQuotes from "../component/FetchQuotes";
@@ -34,31 +32,33 @@ import {
 import { useState } from "react";
 
 export default async function page() {
-  const [startNumber, setStartNumber] = useState<number>(0);
   
   const news = await fetchNews();
   
-  const numbers: number[] = Array.from({length: 7}, (_, index) => index + 10);
+  // const numbers: number[] = Array.from({length: 7}, (_, index) => index + 10);
 
-  const navigateForward = (): void => {
-    setStartNumber(prevIndex => {
-      return prevIndex < numbers.length - 1 ? prevIndex + 1 : prevIndex;
-    });
-  }
+  // const navigateForward = (): void => {
+  //   setStartNumber(prevIndex => {
+  //     return prevIndex < numbers.length - 1 ? prevIndex + 1 : prevIndex;
+  //   });
+  // }
 
-  const navigateBackward = (): void => {
-    setStartNumber(prevIndex => {
-      return prevIndex > 0 ? prevIndex - 1 : prevIndex;
-    });
-  }
+  // const navigateBackward = (): void => {
+  //   setStartNumber(prevIndex => {
+  //     return prevIndex > 0 ? prevIndex - 1 : prevIndex;
+  //   });
+  // }
 
-  const heroStartingNumber:number = numbers[startNumber];
+  // const heroStartingNumber:number = numbers[startNumber];
   // HeroNews
 
-  const heroNews = news[heroStartingNumber];
+  const t = 10;
+
+  const heroNews = news[t];
   
   // SideNews
-  const sideNews = news.slice(heroStartingNumber, (heroStartingNumber + 5));
+  const sideNews = news.slice(t, (t + 5));
+  // const sideNews = news.slice(heroStartingNumber, (heroStartingNumber + 5));
   // Latest news
   const latestNews = news.slice(0, 10);
 
@@ -120,10 +120,10 @@ export default async function page() {
                     <div className="center-row-div justify-between">
                       <p>Aug 03, 2022</p>
                       <div className="inline-flex gap-4">
-                        <button onClick={navigateBackward} disabled={startNumber === 0}>
+                        <button>
                           <ChevronLeft size={16} />
                         </button>
-                        <button onClick={navigateForward} disabled={startNumber === numbers.length - 1}>
+                        <button>
                           <ChevronRight size={16} />
                         </button>
                       </div>
