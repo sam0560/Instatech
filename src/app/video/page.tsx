@@ -41,7 +41,7 @@ export default function page() {
   ]
   return (
     <div>
-      <div className="px-8 mx-auto flex flex-col max-w-7xl">
+      <div className="px-4 md:px-8 mx-auto flex flex-col max-w-7xl">
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-8 mt-8">
           {vid.map((i)=>(<Box className="max-w-[380px] w-full" key={i.id}>
             <Box maxWidth={380} h={210} onMouseEnter={()=>handleMouseEnter(i.id)} onMouseLeave={()=>handleMouseLeave(i.id)}>

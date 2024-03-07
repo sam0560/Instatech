@@ -149,7 +149,7 @@ export default async function page() {
             </div>
 
             {/* hero side news */}
-            <div className="p-4 lg:p-0 lg:flex flex-col gap-4 flex md:hidden">
+            <div className="p-4 lg:p-0 lg:flex flex-col gap-4 flex md:hidden items-center">
               {
                 sideNews.map((item)=> (
                 <div className="flex items-start gap-2" key={item.url}>
@@ -202,7 +202,7 @@ export default async function page() {
       </div>
 
       {/* Latest news */}
-      <div className="px-8 mx-auto flex flex-col max-w-7xl">
+      <div className="px-4 md:px-8 mx-auto flex flex-col max-w-7xl">
         <div className="center-row-div justify-between">
           <div>
             <h5>Latest News</h5>
@@ -299,7 +299,7 @@ export default async function page() {
         </Box>
       </section>
       {/* Video content */}
-      <div className="px-8 mx-auto flex flex-col max-w-7xl">
+      <div className="px-4 md:px-8 mx-auto flex flex-col max-w-7xl">
         <div className="center-row-div justify-between">
           <div>
             <h5>Latest Videos</h5>
