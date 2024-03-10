@@ -48,7 +48,7 @@ export default async function page() {
   // const heroStartingNumber:number = numbers[startNumber];
   // HeroNews
 
-  const t = 10;
+  const t = 3;
 
   const heroNews = news[t];
 
