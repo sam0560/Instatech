@@ -1,6 +1,4 @@
 import { Avatar,Box, Wrap, WrapItem} from '@chakra-ui/react'
-import React from "react";
-import War from '../../../public/testImage/ukrainewar.webp'
 import Link from "next/link";
 import FetchNew from '../../api/fetchNews'
 
