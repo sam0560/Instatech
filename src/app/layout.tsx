@@ -27,7 +27,8 @@ export default function RootLayout({
         {children}
         <CallToAction/>
         <Footer/>
-        </body></Providers>
+        </body>
+      </Providers>
     </html>
   );
 }

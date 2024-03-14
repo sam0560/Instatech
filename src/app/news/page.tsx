@@ -1,7 +1,6 @@
 import { Avatar,Box, Wrap, WrapItem} from '@chakra-ui/react'
 import Link from "next/link";
-import FetchNew from '../../api/fetchNews'
-
+import FetchNew from '../useFetch/fetchNews'
 
 
 export default async function page() {
