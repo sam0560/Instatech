@@ -1,6 +1,6 @@
 import { Avatar,Box, Wrap, WrapItem} from '@chakra-ui/react'
 import Link from "next/link";
-import FetchNew from '../useFetch/fetchNews'
+import FetchNew from '../../../useFetch/fetchNews'
 
 
 export default async function page() {
@@ -8,7 +8,7 @@ export default async function page() {
 
   return (
     <div className="px-4 lg:px-8 mx-auto max-w-7xl">
-      <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 self-center place-items-center justify-self-center">
+      <div className="md:grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 self-center place-items-center justify-self-center hidden ">
          {
          data.map(item => (
           <Box className="max-w-[280px] w-full" key={item.url}>
@@ -54,6 +54,40 @@ export default async function page() {
             </Box>
           </Box>
          ))}
+      </div>
+
+
+
+      {/* Smaller screen */}
+      <div className="p-4 lg:p-0 flex flex-col gap-4 md:hidden items-center">
+        {data.map((item) => (
+          <div className="flex items-start gap-2 border border-gray rounded-lg p-2 w-full min-h-[80px]" key={item.url}>
+            {/* News items */}
+            <Box w="30%" h="80px">
+              <div
+                style={{
+                  backgroundImage: `url(${item.urlToImage})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: "12px",
+                }}
+              ></div>
+            </Box>
+
+            <div className="w-[70%]">
+              <div>
+                <p className="mb-1 text-sm">{item.title.slice(0,65)} ...</p>
+                <p className="text-xs">{item.source.name}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

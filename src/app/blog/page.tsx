@@ -1,5 +1,5 @@
 import { Avatar, Box, Wrap, WrapItem } from "@chakra-ui/react";
-import blogs from "../useFetch/fetchBlog";
+import blogs from "../../../useFetch/fetchBlog";
 import Link from "next/link";
 
 interface Blogs {

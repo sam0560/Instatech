@@ -1,22 +1,23 @@
-interface Article {
-    source: {id: string; name: string}
-    urlToImage: string
-    url: string
-    title: string
-    author: string
-    publishedAt: string
-    content: string
-    description: string
-    }
+import type {Article} from '@/types';
 
-export default async function fetchNews() {
+// interface Article {
+//     source: {id: string; name: string}
+//     urlToImage: string
+//     url: string
+//     title: string
+//     author: string
+//     publishedAt: string
+//     content: string
+//     description: string
+//     }
+
+export default async function fetchNews() :Article {
     const API_KEY = "9e86051ea3494bb5b4443b14817a7ec3";
 
-    const qArray = ["technology", "coding", "software"];
+    const qArray = ["technology", "coding"];
+    // , "software"
     const qLoop = Math.floor(Math.random() * qArray.length)
     const q = qArray[qLoop];
-
-    // console.log(q)
     
     const URL = `https://newsapi.org/v2/everything?q=${q}&apiKey=${API_KEY}`;
     
