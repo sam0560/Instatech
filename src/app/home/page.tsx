@@ -94,7 +94,7 @@ export default async function Page() {
         </div>
 
         <div className="flex items-center gap-8 mt-8 overflow-x-scroll lg:overflow-hidden">
-          {latestNews.map((i) => (
+          {latestNews.map((i:any) => (
             <Box className="max-w-[280px] w-full" key={i.url}>
               <Box w={280} h={250}>
                 <div
