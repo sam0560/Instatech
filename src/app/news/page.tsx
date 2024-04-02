@@ -10,7 +10,7 @@ export default async function page() {
     <div className="px-4 lg:px-8 mx-auto max-w-7xl">
       <div className="md:grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 self-center place-items-center justify-self-center hidden ">
          {
-         data.map(item => (
+         data.map((item: any) => (
           <Box className="max-w-[280px] w-full" key={item.url}>
             <Box w={280} maxW="100%" h={250}>
               <div
@@ -60,7 +60,7 @@ export default async function page() {
 
       {/* Smaller screen */}
       <div className="p-4 lg:p-0 flex flex-col gap-4 md:hidden items-center">
-        {data.map((item) => (
+        {data.map((item:any) => (
           <div className="flex items-start gap-2 border border-gray rounded-lg p-2 w-full min-h-[80px]" key={item.url}>
             {/* News items */}
             <Box w="30%" h="80px">
