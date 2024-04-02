@@ -1,4 +1,4 @@
-export type news = {
+export type article = {
     source: {id: string; name: string}
     urlToImage: string
     url: string

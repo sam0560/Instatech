@@ -6,10 +6,10 @@ import { Suspense } from "react";
 
 export default async function News() {
   const news = await fetchNews();
-
-  const t: number = 15;
+  
+  const t = 15;
   const heroNews = news[t];
-
+  
   // SideNews
   const sideNews = news.slice(t, t + 5);
   return (
