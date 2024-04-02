@@ -29,25 +29,6 @@ import Videos from "./Videos";
 export default async function Page() {
   const news = await fetchNews();
 
-  // const numbers: number[] = Array.from({length: 7}, (_, index) => index + 10);
-
-  // const navigateForward = (): void => {
-  //   setStartNumber(prevIndex => {
-  //     return prevIndex < numbers.length - 1 ? prevIndex + 1 : prevIndex;
-  //   });
-  // }
-
-  // const navigateBackward = (): void => {
-  //   setStartNumber(prevIndex => {
-  //     return prevIndex > 0 ? prevIndex - 1 : prevIndex;
-  //   });
-  // }
-
-  // const heroStartingNumber:number = numbers[startNumber];
-
-  // HeroNews
-  // const sideNews = news.slice(heroStartingNumber, (heroStartingNumber + 5));
-  // Latest news
   const latestNews = news.slice(0, 10);
   return (
     <div>
@@ -168,7 +149,7 @@ export default async function Page() {
                 Explore latest tech videos around the world
               </Highlight>
             </h4>
-            <button className="mt-8">
+            <button className="mt-8 animate-bounce">
               <ArrowDownCircle />
             </button>
           </div>

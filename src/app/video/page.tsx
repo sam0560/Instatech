@@ -25,7 +25,7 @@ export default async function page() {
     <div>
       <div className="px-4 md:px-8 mx-auto flex flex-col max-w-7xl">
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-8 mt-8">
-          {videos.map((i)=>(<Box className="max-w-[500px] w-full rounded-md" key={i.id.videoId}>
+          {videos.map((i:any)=>(<Box className="max-w-[500px] w-full rounded-md" key={i.id.videoId}>
             <Box maxWidth={500} h={200}>
               <iframe
               id={`youtube-${i.id.videoId}`}
