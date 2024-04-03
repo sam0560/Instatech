@@ -33,9 +33,9 @@ export default function NavMenu() {
             onClick={toggle}
           >
             {mobileMenuOpen?
-              <Menu />
-              :
               <X/>
+              :
+              <Menu />
             }
           </button>
         </div>
@@ -63,7 +63,7 @@ export default function NavMenu() {
       </nav>
       {/* Mobile Screen */}
       <ul className={`
-      flex-col ${!mobileMenuOpen? 'left-0' : '-left-full'} flex lg:hidden gap-y-8 
+      flex-col ${mobileMenuOpen? 'left-0' : '-left-full'} flex lg:hidden gap-y-8 
       bg-purple-100 absolute
       w-full h-[50vh] z-[999] pt-4 pl-8
       transition duration-500

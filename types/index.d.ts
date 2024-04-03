@@ -1,4 +1,4 @@
-export type article = {
+export type Article = {
     source: {id: string; name: string}
     urlToImage: string
     url: string

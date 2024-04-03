@@ -2,7 +2,6 @@ import { Avatar, Box, Wrap, WrapItem } from "@chakra-ui/react";
 import fetchNews from "../../../useFetch/fetchNews";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Suspense } from "react";
 
 export default async function News() {
   const news = await fetchNews();
@@ -62,8 +61,6 @@ export default async function News() {
           }
         </div>
         <Box maxW="700px" h={430} w={{ base: "100%", sm: "700px" }}>
-          {/* <Loading/> */}
-          <Suspense fallback={<p>Loading ...</p>}>
             <div
               style={{
                 backgroundImage: `url(${heroNews.urlToImage})`,
@@ -77,7 +74,6 @@ export default async function News() {
                 justifyContent: "center",
               }}
             ></div>
-          </Suspense>
         </Box>
       </div>
 
