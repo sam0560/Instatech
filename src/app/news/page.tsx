@@ -45,7 +45,11 @@ export default async function page() {
                 <p className="mt-3 text-justify">
                   {item.description?.slice(0, 90)}
                   <span>
-                    <Link href="" className="text-primary text-xs">
+                    <Link
+                      href={`/news/${item.title}`}
+                      className="text-primary text-xs"
+                      target="_blank"
+                    >
                       {" "}
                       read more
                     </Link>
@@ -66,12 +70,12 @@ export default async function page() {
       <div className="p-4 lg:p-0 flex flex-col gap-4 md:hidden items-center">
         {data.map((item: any) => (
           <div
-            className="flex items-start gap-2 border border-gray rounded-lg p-2 w-full min-h-[80px]"
+            className="flex items-start gap-2 border border-gray rounded-lg p-2 w-full min-h-[80px] shadow-sm"
             key={item.url}
           >
             {/* News items */}
             <Box w="30%" h="80px">
-              <Link href="">
+              <Link href={`/news/${item.title}`} target="_blank">
                 <div
                   style={{
                     backgroundImage: `url(${item.urlToImage})`,
@@ -91,9 +95,9 @@ export default async function page() {
 
             <div className="w-[70%]">
               <div>
-                <Link href="">
+                <Link href={`/news/${item.title}`} target="_blank">
                   <p className="mb-1 text-sm">{item.title.slice(0, 65)} ...</p>
-                  <p className="text-xs">{item.source.name}</p>
+                  <p className="text-xs text-primary">{item.source.name}</p>
                 </Link>
               </div>
             </div>

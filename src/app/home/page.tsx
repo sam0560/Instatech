@@ -25,13 +25,14 @@ import {
 
 import News from "./News";
 import Videos from "./Videos";
+import { Suspense } from "react";
 
 export default async function Page() {
   const news = await fetchNews();
 
   const latestNews = news.slice(0, 10);
   return (
-    <div>
+    <Suspense fallback={<p>Loading...</p>}>
       <div className="container">
         <Box
           w="100%"
@@ -345,6 +346,6 @@ export default async function Page() {
         </Box>
       </Box>
       {/* Our mission */}
-    </div>
+    </Suspense>
   );
 }
