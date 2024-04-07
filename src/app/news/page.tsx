@@ -48,7 +48,7 @@ export default async function page() {
                     <Link
                       href={`/news/${item.title}`}
                       className="text-primary text-xs"
-                      target="_blank"
+                     
                     >
                       {" "}
                       read more
@@ -75,7 +75,7 @@ export default async function page() {
           >
             {/* News items */}
             <Box w="30%" h="80px">
-              <Link href={`/news/${item.title}`} target="_blank">
+              <Link href={`/news/${item.title}`}>
                 <div
                   style={{
                     backgroundImage: `url(${item.urlToImage})`,
@@ -95,7 +95,7 @@ export default async function page() {
 
             <div className="w-[70%]">
               <div>
-                <Link href={`/news/${item.title}`} target="_blank">
+                <Link href={`/news/${item.title}`}>
                   <p className="mb-1 text-sm">{item.title.slice(0, 65)} ...</p>
                   <p className="text-xs text-primary">{item.source.name}</p>
                 </Link>
