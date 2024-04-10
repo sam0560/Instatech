@@ -39,23 +39,23 @@ export default async function News() {
                 </h4>
                 <p className="my-4 text-pin">
                   {heroNews.description.slice(0, 65)}
-                  <Link href="" className="text-primary text-base">
+                  <Link href={`/news/${heroNews.title}`} className="text-primary text-base">
                     {" "}
                     Read more
                   </Link>
                 </p>
               </div>
 
-              <div className="center-row-div justify-between">
+              <div className="center-row-div justify-start">
                 <p>Aug 03, 2022</p>
-                <div className="inline-flex gap-4">
+                {/* <div className="inline-flex gap-4">
                   <button>
                     <ChevronLeft size={16} />
                   </button>
                   <button>
                     <ChevronRight size={16} />
                   </button>
-                </div>
+                </div> */}
               </div>
             </Box>
           }
@@ -112,11 +112,13 @@ export default async function News() {
                     />
                   </WrapItem>
                 </Wrap>
-                <p>{item.source.name}</p>
+                <h6>{item.source.name}</h6>
               </div>
-              <div className="max-w-[12.5rem] text-sm mt-2">
-                <h6 className="text-sm">{item.title.slice(0, 50)} ...</h6>
-              </div>
+              <Link href={`/news/${item.title}`}>
+                <div className="max-w-[12.5rem] text-sm mt-2">
+                  <p className="text-sm">{item.title.slice(0, 40)} ...</p>
+                </div>
+              </Link>
             </div>
           </div>
         ))}

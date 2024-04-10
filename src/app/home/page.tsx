@@ -113,7 +113,7 @@ export default async function Page() {
                   <p className="mt-3 text">
                     {i.description?.slice(0, 90)}
                     <span>
-                      <Link href="" className="text-primary text-xs">
+                      <Link href={`/news/${i.title}`} className="text-primary text-xs">
                         {" "}
                         read more
                       </Link>
