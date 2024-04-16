@@ -24,7 +24,7 @@ export default async function page() {
             <Box w={280} maxW="100%" h={250}>
               <div
                 style={{
-                  backgroundImage: `url(${item.cover_image})`,
+                  backgroundImage: `url(${item.social_image})`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                   backgroundSize: "cover",
