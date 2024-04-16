@@ -1,56 +1,27 @@
-import { Box } from "@chakra-ui/react";
-import fetchNews from "../../../../useFetch/fetchNews";
-import Link from "next/link";
+import { Box } from '@chakra-ui/react';
+import fetchBlog from '../../../../useFetch/fetchBlog'
+import Link from 'next/link';
 
-export async function generateStaticParams() {
-  const news = await fetchNews();
-
-  return news.map((i) => ({
-    id: i.title,
-  }));
+const generateStaticParams = async() => {
+    const data = await fetchBlog();
+    return data.map((i:any) => i.slug);
 }
 
-const getTitle = async (id: string) => {
-  const news = await fetchNews();
+export default async function page({params}:any) {
+const blogs = await fetchBlog();
 
-  const modifiedTitles = news.map((i) =>
-    i.title
-      .replace(/[^a-zA-Z0-9\s]/g, "")
-      .trim()
-      .replace(/\s+/g, "%20")
-  );
+const blog = blogs.find((i:any) => i.slug == params.slug)
 
-  // Find matching title
-  const findNews = modifiedTitles.find(
-    (title) => title.toLowerCase == id.toLowerCase
-  );
 
-  return findNews;
-};
-
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
-
-  const data = await getTitle(id);
-  const modData = id
-    .replace(/20/g, " ")
-    .replace(/[^a-zA-Z0-9\s]/g, "")
-    .trim()
-    .replace(/\s+/g, " ")
-    .toLowerCase();
-
-  const getNews = await fetchNews();
-
-  const news = getNews.find((n) => n.title.toLowerCase() === modData);
 
   return (
     <>
-      {news ? (
+      {blog ? (
         <div className="flex flex-col lg:flex-row items-center mx-auto max-w-7xl gap-8 p-6 lg:px-8">
           <Box w={["100%", "100%", "50%"]} h={["250px", "250px", "450px"]}>
             <div
               style={{
-                backgroundImage: `url(${news?.urlToImage})`,
+                backgroundImage: `url(${blog?.social_image})`,
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 backgroundSize: "cover",
@@ -64,13 +35,13 @@ export default async function Page({ params }: { params: { id: string } }) {
           </Box>
           <Box w={["100%", "100%", "50%"]}>
             <Box>
-              <h4>{news?.title}</h4>
+              <h4>{blog?.title}</h4>
             </Box>
             <Box paddingY="1rem">
               <p className="leading-normal">
-                {news?.content}{" "}
+                {blog?.description}{" "}
                 <span className="text-primary underline">
-                  <Link href={`${news?.url}`} target="_blank">
+                  <Link href={`${blog?.url}`} target="_blank">
                     {" "}
                     Read full
                   </Link>
@@ -85,13 +56,13 @@ export default async function Page({ params }: { params: { id: string } }) {
             >
               <Box>
                 <p>
-                  source:{" "}
-                  <span className="text-primary">{news?.source.name}</span>
+                  Date:{" "}
+                  <span className="text-primary">{blog?.readable_publish_date}</span>
                 </p>
               </Box>
               <Box>
                 <p>
-                  author: <span className="text-primary">{news?.author}</span>
+                  author: <span className="text-primary">{blog?.user.name}</span>
                 </p>
               </Box>
             </Box>
@@ -104,5 +75,5 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
       )}
     </>
-  );
+  )
 }

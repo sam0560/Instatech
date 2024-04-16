@@ -56,8 +56,7 @@ export default async function page() {
                 <p className="mt-3 text-justify">
                   {item.description?.slice(0, 90)}
                   <span>
-                    <Link href="" className="text-primary text-xs">
-                      {" "}
+                    <Link href={`/blog/${item.slug}`} className="text-primary text-xs">
                       read more
                     </Link>
                   </span>
