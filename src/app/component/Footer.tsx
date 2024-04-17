@@ -73,20 +73,20 @@ export default function Footer() {
 
           {/* Social connects */}
           <div>
-            <h6 className="font-semibold mb-4">Follow me</h6>
+            <h6 className="font-semibold mb-4">Follow developer</h6>
             <ul className="flex items-center gap-4">
               <li>
-                <Link href="" target="_blank">
+                <Link href="https://twitter.com/kaysam_s" target="_blank">
                   <Twitter />
                 </Link>
               </li>
               <li>
-                <Link href="" target="_blank">
+                <Link href="github.com/sam0560" target="_blank">
                   <Github />
                 </Link>
               </li>
               <li>
-                <Link href="" target="_blank">
+                <Link href="https://www.linkedin.com/in/smcode-572330230" target="_blank">
                   <Linkedin />
                 </Link>
               </li>

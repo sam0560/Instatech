@@ -2,11 +2,6 @@ import { Box } from '@chakra-ui/react';
 import fetchBlog from '../../../../useFetch/fetchBlog'
 import Link from 'next/link';
 
-const generateStaticParams = async() => {
-    const data = await fetchBlog();
-    return data.map((i:any) => i.slug);
-}
-
 export default async function page({params}:any) {
 const blogs = await fetchBlog();
 

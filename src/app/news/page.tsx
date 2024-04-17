@@ -40,14 +40,14 @@ export default async function page() {
                 </Wrap>
                 <p>{item.source.name}</p>
               </Box>
-              <Box className=" text-sm my-3">
+              <Box className="my-3">
                 <h6 className="text-justify">{item.title.slice(0, 30)} ...</h6>
                 <p className="mt-3 text-justify">
                   {item.description?.slice(0, 90)}
                   <span>
                     <Link
                       href={`/news/${item.title}`}
-                      className="text-primary text-xs"
+                      className="text-primary text-sm"
                      
                     >
                       {" "}
