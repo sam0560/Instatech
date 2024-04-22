@@ -83,7 +83,7 @@ export default async function News() {
       {/* hero side news */}
       <div className="p-4 lg:p-0 lg:flex flex-col gap-4 flex md:hidden items-center">
         {sideNews.map((item: any) => (
-          <Link href={`/news/${item.title}`}>
+          <Link href={`/news/${item.title}`} key={item.title}>
             <div className="flex items-start gap-2" key={item.url}>
               {/* News items */}
               <Box w={120} h={70}>
