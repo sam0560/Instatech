@@ -1,5 +1,6 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
+import { climate_crisis } from "../font";
 
 export default function Footer() {
   return (
@@ -7,36 +8,28 @@ export default function Footer() {
       <div className="">
         <div className="flex flex-wrap items-start justify-start gap-16 lg:gap-x-60 container py-10 px-4 lg:px-0">
           <ul className="flex flex-col gap-3">
-            <li></li>
+            <li className="text-primary">
+              <Link href="/home">
+                <h6 className={climate_crisis.className}>Instatech</h6>
+              </Link>
+            </li>
             <li>
-              <Link
-                href="/home"
-                className="text-base leading-6 text-gray-900"
-              >
+              <Link href="/home" className="text-base leading-6 text-gray-900">
                 Home
               </Link>
             </li>
             <li>
-              <Link
-                href="/news"
-                className="text-base leading-6 text-gray-900"
-              >
+              <Link href="/news" className="text-base leading-6 text-gray-900">
                 News
               </Link>
             </li>
             <li>
-              <Link
-                href="/blog"
-                className="text-base leading-6 text-gray-900"
-              >
+              <Link href="/blog" className="text-base leading-6 text-gray-900">
                 Blog
               </Link>
             </li>
             <li>
-              <Link
-                href="/video"
-                className="text-base leading-6 text-gray-900"
-              >
+              <Link href="/video" className="text-base leading-6 text-gray-900">
                 Video
               </Link>
             </li>
@@ -46,26 +39,17 @@ export default function Footer() {
           <ul className="flex flex-col gap-3">
             <li className="font-semibold">Legal</li>
             <li>
-              <Link
-                href="/"
-                className="text-base leading-6 text-gray-900"
-              >
+              <Link href="/" className="text-base leading-6 text-gray-900">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link
-                href="/"
-                className="text-base leading-6 text-gray-900"
-              >
+              <Link href="/" className="text-base leading-6 text-gray-900">
                 Cookies Policy
               </Link>
             </li>
             <li>
-              <Link
-                href="/"
-                className="text-base leading-6 text-gray-900"
-              >
+              <Link href="/" className="text-base leading-6 text-gray-900">
                 Security
               </Link>
             </li>
@@ -86,7 +70,10 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="https://www.linkedin.com/in/smcode-572330230" target="_blank">
+                <Link
+                  href="https://www.linkedin.com/in/smcode-572330230"
+                  target="_blank"
+                >
                   <Linkedin />
                 </Link>
               </li>

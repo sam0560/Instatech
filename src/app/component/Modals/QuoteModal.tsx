@@ -3,23 +3,24 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 import { useRef } from "react"
 
-export default function QuoteModal() {
+export default function QuoteModal({quote, author}:any) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const finalRef = useRef(null)
     
-  
     return (
       <>
-        <Button onClick={onOpen} backgroundColor="transparent" fontWeight="500">
+        <Button onClick={onOpen} backgroundColor="transparent">
           read more
         </Button>
         <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
+            <ModalHeader color="rgb(181 22 91/1)">Quotes</ModalHeader>
             <ModalCloseButton />
-            <ModalBody>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, labore.
+            <ModalBody fontSize={18}>
+              {quote}
+              <br />
+              <p className="text-sm">Author: <span className="text-pink-900 italic"> {author}</span></p>
             </ModalBody>
   
             <ModalFooter>

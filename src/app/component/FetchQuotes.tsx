@@ -24,7 +24,7 @@ export default async function FetchQuotes() {
     <>
       {<div>
         {(randomQuote.content).slice(0,60)}...
-          <QuoteModal/>
+          <QuoteModal quote={randomQuote.content} author={randomQuote.author}/>
         <div>
           <p className="text-sm">
             Author: <span><em>{randomQuote.author}</em></span>

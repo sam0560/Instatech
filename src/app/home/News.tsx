@@ -5,10 +5,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default async function News() {
   const news = await fetchNews();
-  
+
   const t = 15;
   const heroNews = news[t];
-  
+
   // SideNews
   const sideNews = news.slice(t, t + 5);
   return (
@@ -39,7 +39,10 @@ export default async function News() {
                 </h4>
                 <p className="my-4 text-pin">
                   {heroNews.description.slice(0, 65)}
-                  <Link href={`/news/${heroNews.title}`} className="text-primary text-base">
+                  <Link
+                    href={`/news/${heroNews.title}`}
+                    className="text-primary text-base"
+                  >
                     {" "}
                     Read more
                   </Link>
@@ -61,66 +64,66 @@ export default async function News() {
           }
         </div>
         <Box maxW="700px" h={430} w={{ base: "100%", sm: "700px" }}>
-            <div
-              style={{
-                backgroundImage: `url(${heroNews.urlToImage})`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                width: "100%",
-                height: "430px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            ></div>
+          <div
+            style={{
+              backgroundImage: `url(${heroNews.urlToImage})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              width: "100%",
+              height: "430px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          ></div>
         </Box>
       </div>
 
       {/* hero side news */}
       <div className="p-4 lg:p-0 lg:flex flex-col gap-4 flex md:hidden items-center">
-        {sideNews.map((item:any) => (
-          <div className="flex items-start gap-2" key={item.url}>
-            {/* News items */}
-            <Box w={120} h={70}>
-              <div
-                style={{
-                  backgroundImage: `url(${item.urlToImage})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  width: "100%",
-                  height: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: "12px",
-                }}
-              ></div>
-            </Box>
+        {sideNews.map((item: any) => (
+          <Link href={`/news/${item.title}`}>
+            <div className="flex items-start gap-2" key={item.url}>
+              {/* News items */}
+              <Box w={120} h={70}>
+                <div
+                  style={{
+                    backgroundImage: `url(${item.urlToImage})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "12px",
+                  }}
+                ></div>
+              </Box>
 
-            <div>
-              <div className="center-row-div justify-start">
-                {/* avatar */}
-                <Wrap>
-                  <WrapItem>
-                    <Avatar
-                      size="xs"
-                      src={item.urlToImage}
-                      name="Small Avatar"
-                      bg="pink.100"
-                    />
-                  </WrapItem>
-                </Wrap>
-                <h6>{item.source.name}</h6>
-              </div>
-              <Link href={`/news/${item.title}`}>
+              <div>
+                <div className="center-row-div justify-start">
+                  {/* avatar */}
+                  <Wrap>
+                    <WrapItem>
+                      <Avatar
+                        size="xs"
+                        src={item.urlToImage}
+                        name="Small Avatar"
+                        bg="pink.100"
+                      />
+                    </WrapItem>
+                  </Wrap>
+                  <h6>{item.source.name}</h6>
+                </div>
                 <div className="max-w-[12.5rem] text-sm mt-2">
                   <p className="text-sm">{item.title.slice(0, 40)} ...</p>
                 </div>
-              </Link>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>

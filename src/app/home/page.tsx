@@ -32,7 +32,7 @@ export default async function Page() {
 
   const latestNews = news.slice(0, 10);
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<h1>Loading...</h1>}>
       <div className="container">
         <Box
           w="100%"

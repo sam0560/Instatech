@@ -4,7 +4,6 @@ import { climate_crisis } from "../font";
 import { Link } from "@chakra-ui/react";
 import {Menu, X} from 'lucide-react'
 import { useState } from "react"
-import Image from "next/image";
 
 export default function NavMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
@@ -19,7 +18,6 @@ export default function NavMenu() {
         <div className="flex lg:flex-1">
           <Link href="/home" className="-m-1.5 p-1.5 ">
             <h3 className={climate_crisis.className}>Instatech</h3>
-            
           </Link>
         </div>
         <div className="flex lg:hidden">
