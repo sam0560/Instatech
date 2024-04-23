@@ -1,7 +1,5 @@
 import { Box } from "@chakra-ui/react";
 import Link from "next/link";
-import Lottie from "lottie-react";
-// import groovyWalkAnimation from './groovywalk.json';
 
 export default function CallToAction() {
   return (
