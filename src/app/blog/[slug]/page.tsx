@@ -38,7 +38,7 @@ const blog = blogs.find((i:any) => i.slug == params.slug)
                 <span className="text-primary underline">
                   <Link href={`${blog?.url}`} target="_blank">
                     {" "}
-                    Read full
+                     Read full
                   </Link>
                 </span>
               </p>
@@ -66,7 +66,7 @@ const blog = blogs.find((i:any) => i.slug == params.slug)
       ) : (
         <div className="flex flex-col justify-center items-center text-center p-8 lg:p-0">
           <h1 className="text-dark-text">Oooops!!!! Not available</h1>
-          <small className="text-primary max-w-3xl">This is because this page returns undefined but other article works perfectly</small>
+          <small className="text-primary max-w-3xl">This is because this page returns undefined but other blogs works perfectly</small>
         </div>
       )}
     </>
