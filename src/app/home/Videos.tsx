@@ -1,4 +1,4 @@
-import { Box, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Skeleton, Wrap, WrapItem } from "@chakra-ui/react";
 import fetchVideos from "../../../useFetch/fetchVideos";
 
 export default async function Videos() {
@@ -9,14 +9,16 @@ export default async function Videos() {
       {videos.map((i: any) => (
         <Box className="max-w-[380px] w-full rounded-md" key={i.id.videoId}>
           <Box maxWidth={500} h={200}>
-            <iframe
-              id={`youtube-${i.id.videoId}`}
-              src={`https://www.youtube.com/embed/${i.id.videoId}`}
-              allowFullScreen
-              frameBorder="0"
-              height="200px"
-              className="w-full"
-            />
+            <Skeleton isLoaded>
+              <iframe
+                id={`youtube-${i.id.videoId}`}
+                src={`https://www.youtube.com/embed/${i.id.videoId}`}
+                allowFullScreen
+                frameBorder="0"
+                height="200px"
+                className="w-full"
+              />
+            </Skeleton>
           </Box>
 
           <Box mt={1}>
@@ -33,10 +35,14 @@ export default async function Videos() {
               </Wrap>
             </Box>
             <Box className=" text-base my-3">
-              <h6 className="text-justify">
-                {i.snippet.title.slice(0, 50)} ...
-              </h6>
-              <p className="mt-3 uppercase">{i.snippet.channelTitle}</p>
+              <Skeleton isLoaded>
+                <h6 className="text-justify">
+                  {i.snippet.title.slice(0, 50)} ...
+                </h6>
+              </Skeleton>
+              <Skeleton isLoaded>
+                <p className="mt-3 uppercase">{i.snippet.channelTitle}</p>
+              </Skeleton>
             </Box>
           </Box>
         </Box>

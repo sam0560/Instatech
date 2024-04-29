@@ -12,27 +12,25 @@ import {
   CardHeader,
   Heading,
   Highlight,
+  Skeleton,
+  SkeletonCircle,
+  SkeletonText,
   Text,
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
 
-import {
-  ArrowDownCircle,
-  ChevronRight,
-  User2,
-} from "lucide-react";
+import { ArrowDownCircle, ChevronRight, User2 } from "lucide-react";
 
 import News from "./News";
 import Videos from "./Videos";
-import { Suspense } from "react";
 
 export default async function Page() {
   const news = await fetchNews();
 
   const latestNews = news.slice(0, 10);
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <>
       <div className="container">
         <Box
           w="100%"
@@ -53,7 +51,7 @@ export default async function Page() {
         {/* Hero */}
         <div className="my-[4rem]">
           <div className="grid lg:grid-flow-col grid-col-3 gap-4">
-            <News/>
+            <News />
           </div>
         </div>
         {/* Hero */}
@@ -76,55 +74,72 @@ export default async function Page() {
         </div>
 
         <div className="flex items-center gap-8 mt-8 overflow-x-scroll lg:overflow-hidden">
-          {latestNews.map((i:any) => (
+          {latestNews.map((i: any) => (
             <Box className="max-w-[280px] w-full" key={i.url}>
               <Box w={280} h={250}>
-                <div
-                  style={{
-                    backgroundImage: `url(${i.urlToImage})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    width: "100%",
-                    height: "250px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "12px",
-                  }}
-                ></div>
+                <Skeleton isLoaded>
+                  <div
+                    style={{
+                      backgroundImage: `url(${i.urlToImage})`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                      width: "100%",
+                      height: "250px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "12px",
+                    }}
+                  ></div>
+                </Skeleton>
               </Box>
               <Box mt={2}>
                 <Box className="center-row-div justify-start">
                   <Wrap>
-                    <WrapItem>
-                      <Avatar
-                        size="sm"
-                        src={i.urlToImage}
-                        name="Small Avatar"
-                        bg="pink.100"
-                      />
-                    </WrapItem>
+                    <SkeletonCircle isLoaded>
+                      <WrapItem>
+                        <Avatar
+                          size="sm"
+                          src={i.urlToImage}
+                          name="Small Avatar"
+                          bg="pink.100"
+                        />
+                      </WrapItem>
+                    </SkeletonCircle>
                   </Wrap>
-                  <p className="uppercase">{i.source.name}</p>
+                  <Skeleton width="100%" isLoaded>
+                    <p className="uppercase">{i.source.name}</p>
+                  </Skeleton>
                 </Box>
                 <Box className="my-3">
-                  <h6 className="text-justify">{i.title.slice(0, 30)} ...</h6>
-                  <p className="mt-3 text">
-                    {i.description?.slice(0, 90)}
-                    <span>
-                      <Link href={`/news/${i.title}`} className="text-primary text-sm">
-                        {" "}
-                        read more
-                      </Link>
-                    </span>
-                  </p>
+                  <Skeleton isLoaded>
+                    <h6 className="text-justify">{i.title.slice(0, 30)} ...</h6>
+                  </Skeleton>
+                  <SkeletonText isLoaded height="55px">
+                    <p className="mt-3 text">
+                      {i.description?.slice(0, 90)}
+                      <span>
+                        <Link
+                          href={`/news/${i.title}`}
+                          className="text-primary text-sm"
+                        >
+                          {" "}
+                          read more
+                        </Link>
+                      </span>
+                    </p>
+                  </SkeletonText>
                 </Box>
               </Box>
               <Box display="flex" gap={4} fontSize={14}>
-                <p className="text-primary">{i.source.name}</p>
+                <Skeleton isLoaded>
+                  <p className="text-primary">{i.source.name}</p>
+                </Skeleton>
                 <p>•</p>
-                <p>8 mins ago</p>
+                <Skeleton isLoaded>
+                  <p>8 mins ago</p>
+                </Skeleton>
               </Box>
             </Box>
           ))}
@@ -173,13 +188,12 @@ export default async function Page() {
         </div>
 
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-8 mt-8">
-          <Videos/>
+          <Videos />
         </div>
       </div>
       {/* Video content */}
       {/* Explore tech content by watching videos */}
 
-      {/* Our mission */}
       <Box my="6rem">
         <Box>
           <Box textAlign="center" pb="2rem">
@@ -346,6 +360,6 @@ export default async function Page() {
         </Box>
       </Box>
       {/* Our mission */}
-    </Suspense>
+    </>
   );
 }

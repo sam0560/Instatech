@@ -1,4 +1,4 @@
-import { Avatar, Box, Wrap, WrapItem } from "@chakra-ui/react";
+import { Avatar, Box, Skeleton, SkeletonCircle, SkeletonText, Wrap, WrapItem } from "@chakra-ui/react";
 import fetchNews from "../../../useFetch/fetchNews";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -20,7 +20,8 @@ export default async function News() {
               <div className="center-row-div justify-start">
                 {/* avatar */}
                 <Wrap>
-                  <WrapItem>
+                  <SkeletonCircle isLoaded>
+                    <WrapItem>
                     <Avatar
                       size="sm"
                       src={heroNews.urlToImage}
@@ -28,29 +29,39 @@ export default async function News() {
                       bg="pink.100"
                     />
                   </WrapItem>
+                  </SkeletonCircle>
+                  
                 </Wrap>
-                <h5>{heroNews.source.name}</h5>
-                <span>1 hr ago</span>
+                <Skeleton isLoaded>
+                  <h5>{heroNews.source.name}</h5>
+                </Skeleton>
+                <Skeleton isLoaded><span>1 hr ago</span></Skeleton>
               </div>
 
               <div>
-                <h4 className="mt-2 text-purple-900">
-                  {heroNews.title.slice(0, 55)} ...
-                </h4>
-                <p className="my-4 text-pin">
-                  {heroNews.description.slice(0, 65)}
-                  <Link
-                    href={`/news/${heroNews.title}`}
-                    className="text-primary text-base"
-                  >
-                    {" "}
-                    Read more
-                  </Link>
-                </p>
+                <Skeleton isLoaded>
+                  <h4 className="mt-2 text-purple-900">
+                    {heroNews.title.slice(0, 55)} ...
+                  </h4>
+                </Skeleton>
+                <SkeletonText isLoaded>
+                  <p className="my-4 text-pin">
+                    {heroNews.description.slice(0, 65)}
+                    <Link
+                      href={`/news/${heroNews.title}`}
+                      className="text-primary text-base"
+                    >
+                      {" "}
+                      Read more
+                    </Link>
+                  </p>
+                </SkeletonText>
               </div>
 
               <div className="center-row-div justify-start">
-                <p>Aug 03, 2022</p>
+                <Skeleton isLoaded mt={4}>
+                  <p>Aug 03, 2022</p>
+                </Skeleton>
                 {/* <div className="inline-flex gap-4">
                   <button>
                     <ChevronLeft size={16} />
@@ -64,6 +75,7 @@ export default async function News() {
           }
         </div>
         <Box maxW="700px" h={430} w={{ base: "100%", sm: "700px" }}>
+          <Skeleton isLoaded>
           <div
             style={{
               backgroundImage: `url(${heroNews.urlToImage})`,
@@ -77,6 +89,7 @@ export default async function News() {
               justifyContent: "center",
             }}
           ></div>
+          </Skeleton>
         </Box>
       </div>
 
@@ -86,8 +99,9 @@ export default async function News() {
           <Link href={`/news/${item.title}`} key={item.title}>
             <div className="flex items-start gap-2" key={item.url}>
               {/* News items */}
-              <Box w={120} h={70}>
-                <div
+              <Box w="120px" h={70}>
+                <Skeleton isLoaded height="100%">
+                  <div
                   style={{
                     backgroundImage: `url(${item.urlToImage})`,
                     backgroundRepeat: "no-repeat",
@@ -101,13 +115,15 @@ export default async function News() {
                     borderRadius: "12px",
                   }}
                 ></div>
+                </Skeleton>
               </Box>
 
               <div>
                 <div className="center-row-div justify-start">
                   {/* avatar */}
                   <Wrap>
-                    <WrapItem>
+                    <Skeleton isLoaded>
+                      <WrapItem>
                       <Avatar
                         size="xs"
                         src={item.urlToImage}
@@ -115,11 +131,17 @@ export default async function News() {
                         bg="pink.100"
                       />
                     </WrapItem>
+                    </Skeleton>
+                    
                   </Wrap>
-                  <h6>{item.source.name}</h6>
+                  <Skeleton isLoaded>
+                    <h6>{item.source.name}</h6>
+                  </Skeleton>
                 </div>
-                <div className="max-w-[12.5rem] text-sm mt-2">
-                  <p className="text-sm">{item.title.slice(0, 40)} ...</p>
+                <div className="w-full text-sm mt-2">
+                  <Skeleton isLoaded>
+                    <p className="text-sm">{item.title.slice(0, 40)} ...</p>
+                  </Skeleton>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { Avatar, Box, Wrap, WrapItem } from "@chakra-ui/react";
+import { Avatar, Box, Skeleton, SkeletonCircle, SkeletonText, Wrap, WrapItem } from "@chakra-ui/react";
 import blogs from "../../../useFetch/fetchBlog";
 import Link from "next/link";
 
@@ -22,70 +22,87 @@ export default async function page() {
         {data.map((item) => (
           <Box className="max-w-[280px] w-full" key={item.id}>
             <Box w={280} maxW="100%" h={250}>
-              <div
-                style={{
-                  backgroundImage: `url(${item.social_image})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  width: "100%",
-                  height: "250px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: "12px",
-                }}
-              ></div>
+              <Skeleton isLoaded>
+                  <div
+                  style={{
+                    backgroundImage: `url(${item.social_image})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    width: "100%",
+                    height: "250px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "12px",
+                  }}
+                ></div>
+              </Skeleton>
+              
             </Box>
             <Box mt={2}>
               <Box className="center-row-div justify-start">
                 <Wrap>
-                  <WrapItem>
-                    <Avatar
-                      size="sm"
-                      src={item.social_image}
-                      name="Small Avatar"
-                      bg="pink.100"
-                    />
-                  </WrapItem>
+                  <SkeletonCircle isLoaded>
+                    <WrapItem>
+                      <Avatar
+                        size="sm"
+                        src={item.social_image}
+                        name="Small Avatar"
+                        bg="pink.100"
+                      />
+                    </WrapItem>
+                  </SkeletonCircle>
                 </Wrap>
-                <p>{item.user.name}</p>
+                <Skeleton isLoaded width="70%">
+                  <p>{item.user.name}</p>
+                </Skeleton>
               </Box>
               <Box className="my-3">
-                <h6 className="text-justify">{item.title.slice(0, 30)} ...</h6>
-                <p className="mt-3 text-justify">
-                  {item.description?.slice(0, 90)}
-                  <span>
-                    <Link href={`/blog/${item.slug}`} className="text-primary text-sm">
-                      read more
-                    </Link>
-                  </span>
-                </p>
+                <Skeleton isLoaded width="100%">
+                  <h6 className="text-justify">{item.title.slice(0, 30)} ...</h6>
+                </Skeleton>
+                <SkeletonText isLoaded width="100%" height="55px">
+                  <p className="mt-3 text-justify">
+                    {item.description?.slice(0, 90)}
+                    <span>
+                      <Link href={`/blog/${item.slug}`} className="text-primary text-sm">
+                        ...read more
+                      </Link>
+                    </span>
+                  </p>
+                </SkeletonText>
               </Box>
             </Box>
-            <Box display="flex" justifyContent="space-between" alignItems="center" gap={4} fontSize={14}>
-              <div className="">
+            <Box display="flex" justifyContent="space-between" alignItems="start" gap={4} fontSize={14}>
+              <Box>
                 <p className="text-[#444444] pb-1">Published by:</p>
                 <div className="flex items-center gap-1">
                 <Wrap>
-                  <WrapItem>
-                    <Avatar
-                      size="xs"
-                      src={item.user.profile_image}
-                      name="Small Avatar"
-                      bg="pink.100"
-                    />
-                  </WrapItem>
+                  <SkeletonCircle isLoaded>
+                    <WrapItem>
+                      <Avatar
+                        size="xs"
+                        src={item.user.profile_image}
+                        name="Small Avatar"
+                        bg="pink.100"
+                      />
+                    </WrapItem>
+                  </SkeletonCircle>
                 </Wrap>
-                <p>{item.user.name}</p>
+                <Skeleton isLoaded height="20px">
+                  <p>{item.user.name}</p>
+                </Skeleton>
                 </div>
-              </div>
+              </Box>
 
-              <div>
-                <p className="text-[#444444] pb-1">Published Date:</p>
+              <Box>
+                <p className="text-[#444444] pb-1">Published at:</p>
 
-                <p className="text-right">{item.readable_publish_date}</p>
-              </div>
+                <Skeleton isLoaded height="20px" mt="6px">
+                  <p className="text-right">{item.readable_publish_date}</p>
+                </Skeleton>
+              </Box>
             </Box>
           </Box>
         ))}
