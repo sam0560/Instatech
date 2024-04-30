@@ -96,7 +96,7 @@ export default async function page() {
             {/* News items */}
             <Box w="30%" h="80px">
               <Link href={`/news/${item.title}`}>
-                <Skeleton isLoaded>
+                <Skeleton isLoaded height="100%">
                 <div
                   style={{
                     backgroundImage: `url(${item.urlToImage})`,
@@ -121,7 +121,7 @@ export default async function page() {
                   <SkeletonText isLoaded height="50px">
                     <p className="text-sm">{item.title.slice(0, 65)} ...</p>
                   </SkeletonText>
-                  <Skeleton height="16px" mt="4px">
+                  <Skeleton height="16px" mt="4px" isLoaded>
                     <p className="text-xs text-primary">{item.source.name}</p>
                   </Skeleton>
                 </Link>

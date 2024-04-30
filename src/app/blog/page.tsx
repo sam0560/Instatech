@@ -74,9 +74,11 @@ export default async function page() {
                 </SkeletonText>
               </Box>
             </Box>
-            <Box display="flex" justifyContent="space-between" alignItems="start" gap={4} fontSize={14}>
+            <Box display="flex" justifyContent="space-between" alignItems="start" gap={4} fontSize={14} mt="16px">
               <Box>
-                <p className="text-[#444444] pb-1">Published by:</p>
+                <Skeleton isLoaded>
+                  <p className="text-[#444444] pb-1">Published by:</p>
+                </Skeleton>
                 <div className="flex items-center gap-1">
                 <Wrap>
                   <SkeletonCircle isLoaded>
@@ -97,8 +99,9 @@ export default async function page() {
               </Box>
 
               <Box>
-                <p className="text-[#444444] pb-1">Published at:</p>
-
+                <Skeleton isLoaded>
+                  <p className="text-[#444444] pb-1">Published at:</p>
+                </Skeleton>
                 <Skeleton isLoaded height="20px" mt="6px">
                   <p className="text-right">{item.readable_publish_date}</p>
                 </Skeleton>
