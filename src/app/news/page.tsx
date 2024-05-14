@@ -90,7 +90,7 @@ export default async function page() {
       <div className="p-4 lg:p-0 flex flex-col gap-4 md:hidden items-center">
         {data.map((item: any) => (
           <div
-            className="flex items-start gap-2 border border-gray rounded-lg p-2 w-full min-h-[80px] shadow-sm"
+            className="flex items-start gap-2 border border-gray rounded-lg p-2 w-full min-h-[80px] shadow-sm hover:shadow-md transition-shadow duration-100 hover:shadow-purple-100"
             key={item.url}
           >
             {/* News items */}

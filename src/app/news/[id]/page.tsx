@@ -10,39 +10,20 @@ export async function generateStaticParams() {
   }));
 }
 
-const getTitle = async (id: string) => {
-  const news = await fetchNews();
-
-  const modifiedTitles = news.map((i) =>
-    i.title
-      .replace(/[^a-zA-Z0-9\s]/g, "")
-      .trim()
-      .replace(/\s+/g, "%20")
-  );
-
-  // Find matching title
-  const findNews = modifiedTitles.find(
-    (title) => title.toLowerCase == id.toLowerCase
-  );
-
-  return findNews;
-};
-
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
-
-  const data = await getTitle(id);
+  
   const modData = id
     .replace(/20/g, " ")
     .replace(/[^a-zA-Z0-9\s]/g, "")
     .trim()
-    .replace(/\s+/g, " ")
-    .toLowerCase();
+    .replace(/\s+/g, " ");
+    
 
   const getNews = await fetchNews();
 
-  const news = getNews.find((n) => n.title.toLowerCase() === modData);
-
+  const news = getNews.find((n) => n.title = modData);
+  
   return (
     <>
       {news ? (
@@ -68,7 +49,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             </Box>
             <Box paddingY="1rem">
               <p className="leading-normal">
-                {news?.content}{" "}
+                {news.content}
                 <span className="text-primary underline">
                   <Link href={`${news?.url}`} target="_blank">
                     {" "}
