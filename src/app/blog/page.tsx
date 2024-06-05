@@ -114,7 +114,6 @@ export default async function page() {
                 <Link href={`/blog/${item.slug}`}>
                   <SkeletonText isLoaded height="50px">
                     <h6 className="text-sm">{item.title.slice(0, 40)} ...</h6>
-                    <p className="text-sm">{item.description.slice(0, 90)} ...</p>
                   </SkeletonText>
                   <Skeleton height="16px" mt="16px" isLoaded>
                     <p className="text-xs text-primary">{item.user.name}</p>

@@ -1,6 +1,7 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { climate_crisis } from "../font";
+import Logo from "../../../public/image/logo.png";
 
 export default function Footer() {
   return (
@@ -10,7 +11,11 @@ export default function Footer() {
           <ul className="flex flex-col gap-3">
             <li className="text-primary">
               <Link href="/home">
-                <h6 className={climate_crisis.className}>Instatech</h6>
+                <Image
+                  src={Logo}
+                  alt="Logo image"
+                  width={150}
+                />
               </Link>
             </li>
             <li>

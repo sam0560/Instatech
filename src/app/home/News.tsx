@@ -48,7 +48,7 @@ export default async function News() {
                   <p className="my-4 text-pin">
                     {heroNews.description.slice(0, 65)}
                     <Link
-                      href={`/news/${heroNews.title}`}
+                       href={`${heroNews?.url}`} target="_blank"
                       className="text-primary text-base"
                     >
                       {" "}
@@ -96,7 +96,7 @@ export default async function News() {
       {/* hero side news */}
       <div className="p-4 lg:p-0 lg:flex flex-col gap-4 flex md:hidden items-center">
         {sideNews.map((item: any) => (
-          <Link href={`/news/${item.title}`} key={item.title}>
+          <Link href={`${item?.url}`} target="_blank" key={item.title}>
             <div className="flex items-start gap-2" key={item.url}>
               {/* News items */}
               <Box w="120px" h={70}>

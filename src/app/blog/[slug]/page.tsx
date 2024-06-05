@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default async function page({params}:any) {
 const blogs = await fetchBlog();
 
-const blog = blogs.find((i:any) => i.slug == params.slug)
+const blog = blogs.find((i:any) => i.slug === params.slug)
 
 
 

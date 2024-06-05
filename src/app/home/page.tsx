@@ -121,7 +121,8 @@ export default async function Page() {
                       {i.description?.slice(0, 90)}
                       <span>
                         <Link
-                          href={`/news/${i.title}`}
+                          href={`${i?.url}`}
+                          target="_blank"
                           className="text-primary text-sm"
                         >
                           {" "}

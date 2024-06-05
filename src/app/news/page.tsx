@@ -65,7 +65,8 @@ export default async function page() {
                     {item.description?.slice(0, 90)}
                     <span>
                       <Link
-                        href={`/news/${item.title}`}
+                        href={`${item?.url}`}
+                        target="_blank"
                         className="text-primary text-sm"
                       >
                         ...read more
@@ -95,29 +96,29 @@ export default async function page() {
           >
             {/* News items */}
             <Box w="30%" h="80px">
-              <Link href={`/news/${item.title}`}>
+              <Link href={`${item?.url}`} target="_blank">
                 <Skeleton isLoaded height="100%">
-                <div
-                  style={{
-                    backgroundImage: `url(${item.urlToImage})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "12px",
-                  }}
-                ></div>
+                  <div
+                    style={{
+                      backgroundImage: `url(${item.urlToImage})`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "12px",
+                    }}
+                  ></div>
                 </Skeleton>
               </Link>
             </Box>
 
             <div className="w-[70%]">
               <div>
-                <Link href={`/news/${item.title}`}>
+                <Link href={`${item?.url}`} target="_blank">
                   <SkeletonText isLoaded height="50px">
                     <p className="text-sm">{item.title.slice(0, 65)} ...</p>
                   </SkeletonText>

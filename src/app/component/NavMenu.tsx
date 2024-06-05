@@ -1,9 +1,10 @@
 "use client"
 
-import { climate_crisis } from "../font";
 import { Link } from "@chakra-ui/react";
 import {Menu, X} from 'lucide-react'
+import Image from "next/image";
 import { useState } from "react"
+import Logo from "../../../public/image/logo.png"
 
 export default function NavMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
@@ -17,7 +18,7 @@ export default function NavMenu() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 relative" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/home" className="-m-1.5 p-1.5 hover:no-underline">
-            <h3 className={climate_crisis.className}>Instatech</h3>
+            <Image src={Logo} alt="Logo image" width={200}/>
           </Link>
         </div>
         <div className="flex lg:hidden">

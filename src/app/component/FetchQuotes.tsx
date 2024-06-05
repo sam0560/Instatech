@@ -1,6 +1,4 @@
-import Link from "next/link";
 import QuoteModal from "./Modals/QuoteModal"
-import { useState } from "react";
 
 const getQuotes = async () => {
   const res = await fetch("https://api.quotable.io/quotes?tags=technology");
