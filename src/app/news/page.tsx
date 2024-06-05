@@ -123,7 +123,7 @@ export default async function page() {
                     <p className="text-sm">{item.title.slice(0, 65)} ...</p>
                   </SkeletonText>
                   <Skeleton height="16px" mt="4px" isLoaded>
-                    <p className="text-xs text-primary">{item.source.name}</p>
+                    <p className="text-xs text-primary mt-2">{item.source.name}</p>
                   </Skeleton>
                 </Link>
               </div>

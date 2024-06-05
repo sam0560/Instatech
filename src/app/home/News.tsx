@@ -1,7 +1,7 @@
 import { Avatar, Box, Skeleton, SkeletonCircle, SkeletonText, Wrap, WrapItem } from "@chakra-ui/react";
 import fetchNews from "../../../useFetch/fetchNews";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default async function News() {
   const news = await fetchNews();
