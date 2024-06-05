@@ -37,7 +37,7 @@ export default async function page() {
                     <WrapItem>
                       <Avatar
                         size="sm"
-                        src={item.urlToImage}
+                        src={item.cover_image}
                         name="Small Avatar"
                         bg="pink.100"
                       />
@@ -93,7 +93,7 @@ export default async function page() {
                 <Skeleton isLoaded height="100%">
                 <div
                   style={{
-                    backgroundImage: `url(${item.urlToImage})`,
+                    backgroundImage: `url(${item.social_image})`,
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
                     backgroundSize: "cover",
@@ -112,11 +112,11 @@ export default async function page() {
             <div className="w-[70%]">
               <div>
                 <Link href={`/blog/${item.slug}`}>
-                  <SkeletonText isLoaded height="50px">
-                    <h6 className="text-sm">{item.title.slice(0, 40)} ...</h6>
+                  <SkeletonText isLoaded height="30px">
+                    <h6 className="text-sm">{item.title.slice(0, 100)} ...</h6>
                   </SkeletonText>
                   <Skeleton height="16px" mt="16px" isLoaded>
-                    <p className="text-xs text-primary">{item.user.name}</p>
+                    <p className="text-xs text-primary mt-4">{item.user.name}</p>
                   </Skeleton>
                 </Link>
               </div>
