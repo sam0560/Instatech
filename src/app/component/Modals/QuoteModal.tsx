@@ -20,7 +20,7 @@ export default function QuoteModal({quote, author}:any) {
             <ModalBody fontSize={18}>
               {quote}
               <br />
-              <p className="text-sm">Author: <span className="text-pink-900 italic"> {author}</span></p>
+              <p className="text-sm">Author: <span className="text-pink-900"> {author}</span></p>
             </ModalBody>
   
             <ModalFooter>

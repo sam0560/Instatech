@@ -8,7 +8,7 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import FetchNew from "../../../useFetch/fetchNews";
+import FetchNew from "../../../hooks/fetchNews";
 
 export default async function page() {
   const data = await FetchNew();

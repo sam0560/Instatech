@@ -1,4 +1,4 @@
-import QuoteModal from "./Modals/QuoteModal"
+import QuoteModal from "./Modals/QuoteModal";
 
 const getQuotes = async () => {
   const res = await fetch("https://api.quotable.io/quotes?tags=technology");
@@ -20,16 +20,19 @@ export default async function FetchQuotes() {
 
   return (
     <>
-      {<div>
-        {(randomQuote.content).slice(0,60)}...
-          <QuoteModal quote={randomQuote.content} author={randomQuote.author}/>
+      {
         <div>
-          <p className="text-sm">
-            Author: <span><em>{randomQuote.author}</em></span>
-          </p>
-          
+          {randomQuote.content.slice(0, 60)}...
+          <QuoteModal quote={randomQuote.content} author={randomQuote.author} />
+          <div>
+            <p className="text-sm">
+              Author:{" "}
+              <span>
+                <em>{randomQuote.author}</em>
+              </span>
+            </p>
+          </div>
         </div>
-      </div>
       }
     </>
   );

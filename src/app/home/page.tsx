@@ -2,7 +2,7 @@
 import FetchQuotes from "../component/FetchQuotes";
 
 import Link from "next/link";
-import fetchNews from "../../../useFetch/fetchNews";
+import fetchNews from "../../../hooks/fetchNews";
 
 import {
   Avatar,

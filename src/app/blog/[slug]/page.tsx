@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import fetchBlog from '../../../../useFetch/fetchBlog'
+import fetchBlog from '../../../../hooks/fetchBlog'
 import Link from 'next/link';
 
 export default async function page({params}:any) {

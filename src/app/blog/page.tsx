@@ -1,5 +1,5 @@
 import { Avatar, Box, Skeleton, SkeletonCircle, SkeletonText, Wrap, WrapItem } from "@chakra-ui/react";
-import blogs from "../../../useFetch/fetchBlog";
+import blogs from "../../../hooks/fetchBlog";
 import Link from "next/link";
 import { Blogs } from "../../../types";
 import { Heading6 } from "lucide-react";

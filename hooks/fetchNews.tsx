@@ -11,7 +11,7 @@ export default async function fetchNews() {
     
     const URL = `https://newsapi.org/v2/everything?q=coding&apiKey=${API_KEY}`;
 
-    const res = await fetch(URL);
+    const res = await fetch(URL, {next: {revalidate: 7200}});
     
     if (!res.ok) {
         throw new Error("Failed to fetch.");

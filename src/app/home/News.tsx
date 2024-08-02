@@ -1,5 +1,5 @@
 import { Avatar, Box, Skeleton, SkeletonCircle, SkeletonText, Wrap, WrapItem } from "@chakra-ui/react";
-import fetchNews from "../../../useFetch/fetchNews";
+import fetchNews from "../../../hooks/fetchNews";
 import Link from "next/link";
 // import { ChevronLeft, ChevronRight } from "lucide-react";
 
