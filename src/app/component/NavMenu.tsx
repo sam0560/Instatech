@@ -5,9 +5,11 @@ import {Menu, X} from 'lucide-react'
 import Image from "next/image";
 import { useState } from "react"
 import Logo from "../../../public/image/logo.png"
+import { usePathname } from "next/navigation";
 
 export default function NavMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
+  const pathname = usePathname();
 
   const toggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -36,21 +38,21 @@ export default function NavMenu() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
 
-          <Link href='/home' className="text-base leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href='/home' className={`text-base leading-6 text-gray-900 hover:text-primary-hover ${pathname === '/home' ? 'active' : ''}`}>
             Home
           </Link>
-          <Link href="/news" className="text-base leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href="/news" className={`text-base leading-6 text-gray-900 hover:text-primary-hover ${pathname === '/news' ? 'active' : ''}`}>
             News
           </Link>
-          <Link href="/blog" className="text-base leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href="/blog" className={`text-base leading-6 text-gray-900 hover:text-primary-hover ${pathname === '/blog' ? 'active' : ''}`}>
             Blog
           </Link>
-          <Link href="/video" className="text-base leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href="/video" className={`text-base leading-6 text-gray-900 hover:text-primary-hover ${pathname === '/video' ? 'active' : ''}`}>
             Video
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className="text-base leading-6 text-gray-900 hover:text-primary-hover">
+          <Link href="#" className={`text-base leading-6 text-gray-900 hover:text-primary-hover ${pathname === '/home' ? 'active' : ''}`}>
             Log in <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>

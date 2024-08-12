@@ -1,8 +1,8 @@
 // import components
-import FetchQuotes from "../component/FetchQuotes";
+import FetchQuotes from "../../component/FetchQuotes";
 
 import Link from "next/link";
-import fetchNews from "../../../hooks/fetchNews";
+import fetchNews from "../../../../hooks/fetchNews";
 
 import {
   Avatar,

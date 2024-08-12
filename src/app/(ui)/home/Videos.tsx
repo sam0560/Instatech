@@ -1,5 +1,5 @@
 import { Box, Skeleton, Wrap, WrapItem } from "@chakra-ui/react";
-import fetchVideos from "../../../hooks/fetchVideos";
+import fetchVideos from "../../../../hooks/fetchVideos";
 
 export default async function Videos() {
   const data = await fetchVideos();

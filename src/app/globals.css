@@ -46,6 +46,10 @@ h6{
   background-image: radial-gradient(at 36% 120%,#fef9c3 0,transparent 50%),radial-gradient(at 73% 72%,#ffe5ee 0,transparent 50%),radial-gradient(at 80% 100%,#ffe5ee 0,transparent 50%),radial-gradient(at 43% 56%,#ffc7db 0,transparent 50%);
 }
 
+.active {
+  @apply text-primary
+}
+
 
 @layer {
   .center-row-div{

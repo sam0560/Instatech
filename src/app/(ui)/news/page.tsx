@@ -8,14 +8,16 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import FetchNew from "../../../hooks/fetchNews";
+import FetchNew from "../../../../hooks/fetchNews";
 
 export default async function page() {
   const data = await FetchNew();
+  console.log(data);
+  
 
   return (
     <div className="px-4 lg:px-8 mx-auto max-w-7xl">
-      <div className="md:grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 self-center place-items-center justify-self-center hidden ">
+      <div className="md:grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 self-center place-items-center justify-self-center hidden">
         {data.map((item: any) => (
           <Box className="max-w-[280px] w-full" key={item.url}>
             <Box w={280} maxW="100%" h={250}>

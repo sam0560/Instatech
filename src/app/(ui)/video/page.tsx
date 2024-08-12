@@ -1,5 +1,5 @@
 import { Box,Wrap,WrapItem, } from '@chakra-ui/react';
-import getVideos from '../../../hooks/fetchVideos'
+import getVideos from '../../../../hooks/fetchVideos'
 
 interface video {
   id: {videoId: string} 

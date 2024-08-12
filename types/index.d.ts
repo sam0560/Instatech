@@ -1,3 +1,5 @@
+import { MongoClient } from "mongodb";
+
 export type Article = {
     source: {id: string; name: string}
     urlToImage: string
@@ -19,3 +21,8 @@ export type Blogs = {
     social_image: string;
     user: { name: string; profile_image: string };
   }
+
+//  global variables
+declare global {
+    var _mongoClientPromise: Promise<MongoClient>;
+}
