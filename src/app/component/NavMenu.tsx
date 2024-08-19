@@ -52,7 +52,7 @@ export default function NavMenu() {
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className={`text-base leading-6 text-gray-900 hover:text-primary-hover ${pathname === '/home' ? 'active' : ''}`}>
+          <Link href="/signin" className={`text-base leading-6 text-gray-900 hover:text-primary-hover ${pathname === '/home' ? 'active' : ''}`}>
             Log in <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
@@ -88,7 +88,7 @@ export default function NavMenu() {
 
 
         <li>
-          <Link href="#" className="text-sm leading-6 text-gray hover:text-primary-hover">
+          <Link href="/signin" className="text-sm leading-6 text-gray hover:text-primary-hover">
             Log in <span aria-hidden="true">&rarr;</span>
           </Link>
         </li>
