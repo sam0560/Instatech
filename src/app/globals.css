@@ -50,6 +50,10 @@ h6{
   @apply text-primary
 }
 
+.link {
+  @apply text-primary hover:text-primary-hover hover:underline
+}
+
 
 @layer {
   .center-row-div{
@@ -59,6 +63,6 @@ h6{
     line-height: 1.2;
   }
   a {
-    @apply hover:text-primary text-sm
+    @apply hover:text-primary text-sm hover:underline
   }
 }

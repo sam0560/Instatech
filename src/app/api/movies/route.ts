@@ -10,6 +10,7 @@ export async function GET() {
     .find({})
     .toArray();
 
+    console.log(NextResponse.json(users))
     return NextResponse.json(users);
   } catch (error) {
     console.error("Error fetching users:", error);
